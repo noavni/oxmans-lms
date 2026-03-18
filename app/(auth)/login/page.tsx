@@ -4,7 +4,8 @@ import Link from "next/link";
 import { useState, Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { signIn } from "next-auth/react";
-import { GraduationCap, EnvelopeSimple, Lock, Eye, EyeSlash } from "@phosphor-icons/react";
+import { EnvelopeSimple, Lock, Eye, EyeSlash } from "@phosphor-icons/react";
+import OxLogo from "@/components/ox-logo";
 import { Button } from "@/components/ui/button";
 
 function LoginForm() {
@@ -148,7 +149,6 @@ function LoginForm() {
 
 export default function LoginPage() {
   const H = "var(--font-playfair),Georgia,serif";
-  const M = "var(--font-dm-mono),monospace";
 
   return (
     <div style={{ minHeight: "100dvh", background: "var(--bg)", position: "relative", display: "flex", alignItems: "center", justifyContent: "center", padding: "64px 20px", overflow: "hidden" }}>
@@ -169,16 +169,9 @@ export default function LoginPage() {
         {/* Logo + heading */}
         <div style={{ textAlign: "center", marginBottom: "32px" }}>
           <Link href="/" style={{ display: "inline-flex", alignItems: "center", gap: "10px", textDecoration: "none", marginBottom: "24px" }}>
-            <div style={{ width: 40, height: 40, borderRadius: "12px", background: "linear-gradient(135deg,#5ecfcf,#1a6fa8,#6b3fa0)", display: "flex", alignItems: "center", justifyContent: "center" }}>
-              <GraduationCap weight="bold" style={{ width: 20, height: 20, color: "#fff" }} />
-            </div>
+            <OxLogo size={44} />
             <span style={{ fontFamily: H, fontWeight: 700, fontSize: "1.4rem", color: "var(--ink)" }}>Oxman&apos;s</span>
           </Link>
-
-          <div style={{ display: "inline-flex", alignItems: "center", gap: "10px", padding: "6px 16px", borderRadius: "100px", background: "rgba(94,207,207,.1)", border: "1px solid rgba(94,207,207,.25)", marginBottom: "20px", animation: "fadeUp .8s .1s ease both" }}>
-            <span style={{ width: 6, height: 6, borderRadius: "50%", background: "var(--tm)", animation: "pulse 2s ease infinite", display: "block" }} />
-            <span style={{ fontFamily: M, fontSize: ".68rem", letterSpacing: ".12em", textTransform: "uppercase" as const, color: "var(--tm)" }}>Mathematics Video Courses</span>
-          </div>
 
           <h1 style={{ fontFamily: H, fontSize: "2rem", fontWeight: 700, letterSpacing: "-.025em", color: "var(--ink)", marginBottom: "8px", animation: "fadeUp .8s .15s ease both" }}>
             Welcome back
