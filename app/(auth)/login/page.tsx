@@ -147,44 +147,65 @@ function LoginForm() {
 }
 
 export default function LoginPage() {
+  const H = "var(--font-playfair),Georgia,serif";
+  const M = "var(--font-dm-mono),monospace";
+
   return (
-    <div className="min-h-[100dvh] flex items-center justify-center px-5 py-16 bg-section">
-      <div className="w-full max-w-md">
-        {/* Logo */}
-        <div className="text-center mb-8">
-          <Link href="/" className="inline-flex items-center gap-2.5 mb-6">
-            <div className="w-10 h-10 rounded-xl bg-brand-gradient flex items-center justify-center">
-              <GraduationCap weight="bold" className="w-5 h-5 text-white" />
+    <div style={{ minHeight: "100dvh", background: "var(--bg)", position: "relative", display: "flex", alignItems: "center", justifyContent: "center", padding: "64px 20px", overflow: "hidden" }}>
+
+      {/* Full-page grid — identical to landing */}
+      <div aria-hidden style={{ position: "absolute", inset: 0, pointerEvents: "none", zIndex: 0, backgroundImage: "linear-gradient(rgba(0,0,0,.022) 1px,transparent 1px),linear-gradient(90deg,rgba(0,0,0,.022) 1px,transparent 1px)", backgroundSize: "80px 80px" }} />
+
+      {/* Conic orb — top-right */}
+      <div aria-hidden style={{ position: "absolute", inset: 0, pointerEvents: "none", overflow: "hidden", zIndex: 0 }}>
+        <div style={{ position: "absolute", top: "-150px", right: "-200px", width: "700px", height: "700px", background: "conic-gradient(from 200deg,rgba(94,207,207,.07),rgba(107,63,160,.06),rgba(224,96,168,.05),rgba(232,72,48,.04),rgba(94,207,207,.07))", borderRadius: "50%", filter: "blur(2px)", animation: "spin 32s linear infinite" }} />
+        {/* Radial orb — bottom-left */}
+        <div style={{ position: "absolute", bottom: "-200px", left: "-100px", width: "500px", height: "500px", background: "radial-gradient(circle,rgba(94,207,207,.07) 0%,transparent 70%)", borderRadius: "50%" }} />
+      </div>
+
+      {/* Card */}
+      <div style={{ position: "relative", zIndex: 1, width: "100%", maxWidth: "448px", animation: "fadeUp .8s ease both" }}>
+
+        {/* Logo + heading */}
+        <div style={{ textAlign: "center", marginBottom: "32px" }}>
+          <Link href="/" style={{ display: "inline-flex", alignItems: "center", gap: "10px", textDecoration: "none", marginBottom: "24px" }}>
+            <div style={{ width: 40, height: 40, borderRadius: "12px", background: "linear-gradient(135deg,#5ecfcf,#1a6fa8,#6b3fa0)", display: "flex", alignItems: "center", justifyContent: "center" }}>
+              <GraduationCap weight="bold" style={{ width: 20, height: 20, color: "#fff" }} />
             </div>
-            <span className="font-serif font-bold text-2xl text-ink">
-              Oxman&apos;s
-            </span>
+            <span style={{ fontFamily: H, fontWeight: 700, fontSize: "1.4rem", color: "var(--ink)" }}>Oxman&apos;s</span>
           </Link>
-          <h1 className="font-serif font-bold text-3xl text-ink mb-2">
+
+          <div style={{ display: "inline-flex", alignItems: "center", gap: "10px", padding: "6px 16px", borderRadius: "100px", background: "rgba(94,207,207,.1)", border: "1px solid rgba(94,207,207,.25)", marginBottom: "20px", animation: "fadeUp .8s .1s ease both" }}>
+            <span style={{ width: 6, height: 6, borderRadius: "50%", background: "var(--tm)", animation: "pulse 2s ease infinite", display: "block" }} />
+            <span style={{ fontFamily: M, fontSize: ".68rem", letterSpacing: ".12em", textTransform: "uppercase" as const, color: "var(--tm)" }}>Mathematics Video Courses</span>
+          </div>
+
+          <h1 style={{ fontFamily: H, fontSize: "2rem", fontWeight: 700, letterSpacing: "-.025em", color: "var(--ink)", marginBottom: "8px", animation: "fadeUp .8s .15s ease both" }}>
             Welcome back
           </h1>
-          <p className="text-ink-subtle text-sm">
+          <p style={{ fontSize: ".9rem", color: "var(--is)", fontWeight: 300, animation: "fadeUp .8s .2s ease both" }}>
             Sign in to continue your learning journey
           </p>
         </div>
 
-        {/* Card */}
-        <div className="bg-page rounded-2xl border border-rule p-8 shadow-sm">
+        {/* Form card */}
+        <div style={{ background: "#fff", borderRadius: "24px", border: "1px solid var(--ru)", padding: "32px", boxShadow: "0 4px 32px rgba(15,14,12,.06)", animation: "fadeUp .8s .25s ease both" }}>
           <Suspense fallback={<div className="space-y-4 animate-pulse" />}>
             <LoginForm />
           </Suspense>
         </div>
 
-        <p className="text-center text-sm text-ink-subtle mt-6">
+        <p style={{ textAlign: "center", fontSize: ".85rem", color: "var(--is)", marginTop: "24px", animation: "fadeUp .8s .35s ease both" }}>
           Don&apos;t have an account?{" "}
-          <Link
-            href="/register"
-            className="text-purple hover:underline font-medium"
+          <Link href="/register" style={{ color: "var(--pu)", fontWeight: 500, textDecoration: "none" }}
+            onMouseEnter={e => (e.currentTarget.style.textDecoration = "underline")}
+            onMouseLeave={e => (e.currentTarget.style.textDecoration = "none")}
           >
             Create one free
           </Link>
         </p>
       </div>
+
     </div>
   );
 }
