@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "skills": {
+    "neon-postgres": {
+      "source": "neondatabase/agent-skills",
+      "sourceType": "github",
+      "computedHash": "574cf4b7c901ebc7d88d34e2c3e3d08fdec127bd0047f888de148ff0af787d4e"
+    },
+    "taste-skill": {
+      "source": "Leonxlnx/taste-skill",
+      "sourceType": "github",
+      "computedHash": "a23a9e4e74a87e3f458d53cbff60adbc666e7a1e8633d43f9e213111e48f69b0"
+    },
+    "redesign-skill": {
+      "source": "Leonxlnx/taste-skill",
+      "sourceType": "github",
+      "computedHash": "98ad3e5b051bfb71b2795f7e8a6aa0d32b51ee095606c098a4b2822ac07926c9"
+    },
+    "soft-skill": {
+      "source": "Leonxlnx/taste-skill",
+      "sourceType": "github",
+      "computedHash": "e1e32f5e2d420872c6c7332b53d5ff7721946766b78c4822b424c2d512c8fdbc"
+    },
+    "output-skill": {
+      "source": "Leonxlnx/taste-skill",
+      "sourceType": "github",
+      "computedHash": "e5bf48b1ae561511439cf71672209a10a88cee0968cc925909ff861dfa0a96a7"
+    },
+    "minimalist-skill": {
+      "source": "Leonxlnx/taste-skill",
+      "sourceType": "github",
+      "computedHash": "36bc7328f085405f43b476938e62460fa573bf7e984e949e072bcf014831a44c"
+    }
+  }
+}
