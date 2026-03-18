@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import OxLogo from "@/components/ox-logo";
 import { usePathname } from "next/navigation";
 import { useSession, signOut } from "next-auth/react";
 import { useState, useEffect } from "react";
@@ -43,21 +44,7 @@ export function Nav() {
     >
       {/* Logo */}
       <Link href="/" style={{ display: "flex", alignItems: "center", gap: "12px", textDecoration: "none" }}>
-        <svg width="34" height="32" viewBox="0 0 100 90" aria-hidden="true">
-          <defs>
-            <linearGradient id="na" x1="0%" y1="100%" x2="100%" y2="0%">
-              <stop offset="0%" stopColor="#5ecfcf" />
-              <stop offset="100%" stopColor="#1a6fa8" />
-            </linearGradient>
-            <linearGradient id="nb" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#6b3fa0" />
-              <stop offset="100%" stopColor="#e060a8" />
-            </linearGradient>
-          </defs>
-          <path d="M8 84L50 8L62 8L20 84Z" fill="url(#na)" opacity=".92" />
-          <path d="M62 8L74 8L92 84L80 84Z" fill="url(#nb)" opacity=".92" />
-          <path d="M20 84L38 84L38 72L20 72Z" fill="#e84830" opacity=".88" />
-        </svg>
+        <OxLogo size={34} />
         <span style={{ fontFamily: "var(--font-playfair), Georgia, serif", fontSize: "1.2rem", fontWeight: 700, color: "var(--ink)", letterSpacing: "-.02em" }}>
           Oxman&apos;s
         </span>

@@ -3,6 +3,7 @@ import { auth } from "@/lib/auth";
 import { SessionProvider } from "next-auth/react";
 import Link from "next/link";
 import { House, BookOpen } from "@phosphor-icons/react/dist/ssr";
+import OxLogo from "@/components/ox-logo";
 import { SignOutButton } from "./sign-out-button";
 
 export default async function AppLayout({
@@ -48,21 +49,7 @@ export default async function AppLayout({
               href="/"
               style={{ display: "flex", alignItems: "center", gap: "12px", textDecoration: "none" }}
             >
-              <svg width="28" height="26" viewBox="0 0 100 90" aria-hidden="true">
-                <defs>
-                  <linearGradient id="sl-a" x1="0%" y1="100%" x2="100%" y2="0%">
-                    <stop offset="0%" stopColor="#5ecfcf" />
-                    <stop offset="100%" stopColor="#1a6fa8" />
-                  </linearGradient>
-                  <linearGradient id="sl-b" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stopColor="#6b3fa0" />
-                    <stop offset="100%" stopColor="#e060a8" />
-                  </linearGradient>
-                </defs>
-                <path d="M8 84L50 8L62 8L20 84Z" fill="url(#sl-a)" opacity=".92" />
-                <path d="M62 8L74 8L92 84L80 84Z" fill="url(#sl-b)" opacity=".92" />
-                <path d="M20 84L38 84L38 72L20 72Z" fill="#e84830" opacity=".88" />
-              </svg>
+              <OxLogo size={28} />
               <span style={{ fontFamily: H, fontSize: "1.15rem", fontWeight: 700, color: "var(--ink)", letterSpacing: "-.02em" }}>
                 Oxman&apos;s
               </span>
@@ -126,19 +113,7 @@ export default async function AppLayout({
           }}
         >
           <Link href="/" style={{ display: "flex", alignItems: "center", gap: "10px", textDecoration: "none" }}>
-            <svg width="24" height="22" viewBox="0 0 100 90" aria-hidden="true">
-              <defs>
-                <linearGradient id="mob-a" x1="0%" y1="100%" x2="100%" y2="0%">
-                  <stop offset="0%" stopColor="#5ecfcf" /><stop offset="100%" stopColor="#1a6fa8" />
-                </linearGradient>
-                <linearGradient id="mob-b" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stopColor="#6b3fa0" /><stop offset="100%" stopColor="#e060a8" />
-                </linearGradient>
-              </defs>
-              <path d="M8 84L50 8L62 8L20 84Z" fill="url(#mob-a)" opacity=".92" />
-              <path d="M62 8L74 8L92 84L80 84Z" fill="url(#mob-b)" opacity=".92" />
-              <path d="M20 84L38 84L38 72L20 72Z" fill="#e84830" opacity=".88" />
-            </svg>
+            <OxLogo size={24} />
             <span style={{ fontFamily: H, fontWeight: 700, fontSize: "1.05rem", color: "var(--ink)" }}>
               Oxman&apos;s
             </span>

@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import OxLogo from "@/components/ox-logo";
 
 export function Footer() {
   const year = new Date().getFullYear();
@@ -45,21 +46,7 @@ export function Footer() {
           {/* Brand column */}
           <div>
             <Link href="/" style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "16px", textDecoration: "none" }}>
-              <svg width="28" height="26" viewBox="0 0 100 90" aria-hidden="true">
-                <defs>
-                  <linearGradient id="fc" x1="0%" y1="100%" x2="100%" y2="0%">
-                    <stop offset="0%" stopColor="#5ecfcf" />
-                    <stop offset="100%" stopColor="#1a6fa8" />
-                  </linearGradient>
-                  <linearGradient id="fd" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stopColor="#6b3fa0" />
-                    <stop offset="100%" stopColor="#e060a8" />
-                  </linearGradient>
-                </defs>
-                <path d="M8 84L50 8L62 8L20 84Z" fill="url(#fc)" opacity=".9" />
-                <path d="M62 8L74 8L92 84L80 84Z" fill="url(#fd)" opacity=".9" />
-                <path d="M20 84L38 84L38 72L20 72Z" fill="#e84830" opacity=".85" />
-              </svg>
+              <OxLogo size={28} />
               <span style={{ fontFamily: "var(--font-playfair), Georgia, serif", fontSize: "1.1rem", fontWeight: 700, color: "#fff" }}>
                 Oxman&apos;s
               </span>
