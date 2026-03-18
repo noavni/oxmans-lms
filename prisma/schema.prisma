@@ -1,0 +1,85 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider      = "prisma-client-js"
+  binaryTargets = ["native", "rhel-openssl-3.0.x"]
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String     @id @default(cuid())
+  email     String     @unique
+  name      String?
+  password  String?
+  role      String     @default("STUDENT")
+  createdAt DateTime   @default(now())
+  purchases Purchase[]
+  progress  Progress[]
+}
+
+model Course {
+  id              String     @id @default(cuid())
+  title           String
+  slug            String     @unique
+  description     String
+  longDescription String?
+  price           Int
+  currency        String     @default("ILS")
+  thumbnail       String?
+  level           String     @default("BEGINNER")
+  isPublished     Boolean    @default(false)
+  createdAt       DateTime   @default(now())
+  chapters        Chapter[]
+  purchases       Purchase[]
+}
+
+model Chapter {
+  id       String   @id @default(cuid())
+  courseId String
+  course   Course   @relation(fields: [courseId], references: [id], onDelete: Cascade)
+  title    String
+  position Int
+  lessons  Lesson[]
+}
+
+model Lesson {
+  id          String     @id @default(cuid())
+  chapterId   String
+  chapter     Chapter    @relation(fields: [chapterId], references: [id], onDelete: Cascade)
+  title       String
+  description String?
+  videoUrl    String?
+  duration    Int?
+  position    Int
+  isFree      Boolean    @default(false)
+  progress    Progress[]
+}
+
+model Purchase {
+  id              String   @id @default(cuid())
+  userId          String
+  user            User     @relation(fields: [userId], references: [id])
+  courseId        String
+  course          Course   @relation(fields: [courseId], references: [id])
+  stripeSessionId String?
+  createdAt       DateTime @default(now())
+
+  @@unique([userId, courseId])
+}
+
+model Progress {
+  id        String   @id @default(cuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id])
+  lessonId  String
+  lesson    Lesson   @relation(fields: [lessonId], references: [id])
+  completed Boolean  @default(false)
+  updatedAt DateTime @updatedAt
+
+  @@unique([userId, lessonId])
+}
